@@ -14,7 +14,7 @@ spec:
       script: |
         #!/usr/bin/env bash
         echo Preparing greeting
-        echo Hello $(params.person) > ~/hello.txt
+        echo Hello $(params.person) > /workspace/hello.txt
         sleep 2
         echo Done!
     - name: say-hello
@@ -22,6 +22,6 @@ spec:
       script: |
         #!/usr/bin/env node
         let fs = require("fs");
-        let file = "/tekton/home/hello.txt";
+        let file = "/workspace/hello.txt";
         let fileContent = fs.readFileSync(file).toString();
         console.log(fileContent);
